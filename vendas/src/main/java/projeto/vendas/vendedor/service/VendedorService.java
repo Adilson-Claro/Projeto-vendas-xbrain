@@ -18,21 +18,21 @@ public class VendedorService {
 
     public Vendedor salvarVendedor(VendedorRequest request) {
 
-         var vendedor = construirVendedor(request.nome(), request.cpf());
+        var vendedor = construirVendedor(request.nome(), request.cpf());
 
-         vendedorRepository.save(vendedor);
-         return vendedor;
+        vendedorRepository.save(vendedor);
+        return vendedor;
     }
 
     private Vendedor construirVendedor(String nome, String cpf) {
 
-        return Vendedor.converter(null,nome, cpf);
+        return Vendedor.converter(null, nome, cpf);
     }
 
     public List<VendedorResponse> buscarVendedor() {
         var vendedor = vendedorRepository.findAll();
 
-        if (vendedor.isEmpty()){
+        if (vendedor.isEmpty()) {
             throw new NotFoundException("Vendedor não encontrado");
         }
 
