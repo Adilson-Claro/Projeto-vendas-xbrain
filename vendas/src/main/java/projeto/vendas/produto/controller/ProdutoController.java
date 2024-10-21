@@ -23,6 +23,7 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoCriado);
     }
 
+    @RequestMapping
     public ResponseEntity<List<ProdutoResponse>> buscarProduto() {
         var produtos = produtoService.buscarProduto();
         return ResponseEntity.ok(produtos);
